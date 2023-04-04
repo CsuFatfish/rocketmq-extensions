@@ -33,7 +33,7 @@ When using message idempotent deduplication, the startup configuration of Consum
 
 ### Principle flow chart
 
-![image-20220621212235579](file://D:\Desktop\Principle flow chart.jpg)
+![image-20220621212235579](https://github.com/CsuFatfish/rocketmq-extend-tools/blob/main/Principle%20flow%20chart.jpg)
 
 
 
