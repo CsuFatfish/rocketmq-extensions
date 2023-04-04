@@ -1,12 +1,12 @@
 # RocketmqExtendTools
 
-Since the official API provided by RocketMQ and RocketmqConsole only provide some basic functions, in actual development, developers often need to expand based on the basic API. The purpose of this project is to expand its functions based on RocketMQ, provide some easy-to-use APIs for functions that are not directly implemented by the official, for everyone to use or learn from, reduce learning costs, and improve efficiency.
+Since the official API provided by RocketMQ and RocketmqConsole only provide some basic features, in actual development, developers often need to expand based on the basic API. The purpose of this project is to expand its features based on RocketMQ, provide some easy-to-use APIs for features that are not directly implemented by the official, for everyone to use or learn from, reduce learning costs, and improve efficiency.
 
-The functions currently implemented are:
+The features currently implemented are:
 
 1. Message idempotent deduplication solution to prevent repeated consumption of messages.
 2. The elastic scaling of Producer and Consumer automatically scales producers and consumers based on resource usage.
-3. Realize some common functions: obtain the logical position of the message in the queue, obtain the tps of production and consumption, obtain the corresponding relationship between the queue and its consumers, etc.
+3. Realize some common features: obtain the logical position of the message in the queue, obtain the tps of production and consumption, obtain the corresponding relationship between the queue and its consumers, etc.
 
 
 
@@ -14,10 +14,10 @@ Since the current project does not consider distributed and some actual use scen
 
 1. The currently used idempotent deduplication scheme is a heavyweight scheme, and the problem of repeated message consumption is a low probability problem. For the processing of small probability problems, heavyweight schemes may not be used. Because there are caches or database operations before and after each message consumption, the first problem is the low efficiency, and the second problem is the consistency of redis and MySQL.
 
-A lightweight solution will be added later. For a system, it is tolerant. For example, repeated messages will only appear within 5 minutes. Then you can directly use redis to prevent repeated consumption. Redis stores message information. The survival time is set to 6 minutes, so as long as the message can be found in redis, the current message is a repeated message, otherwise it is not.
+A lightweight solution will be added later. For a system, it has tolerance. For example, repeated messages will only appear within 5 minutes. Then you can directly use redis to prevent repeated consumption. Redis stores message information. The survival time is set to 6 minutes, so as long as the message can be found in redis, the current message is a repeated message, otherwise it is not.
 
 2. The elastic scaling of Producer and Consumer only considers the elastic scaling of the local machine. RocketMQ is a distributed system. Both consumers and producers exist in the form of clusters. The elastic scaling should be designed to communicate through RPC or network. Scale producers and consumers in producer and consumer clusters.
-3. Several commonly used functions are implemented through the RocketMQ client in the rocketmq-tools package. Calling the API is actually performing network communication, that is, the obtained information is not real-time information, but the information of the previous snapshot status. Fetching real-time status will be considered later.
+3. Several commonly used features are implemented through the RocketMQ client in the rocketmq-tools package. Calling the API is actually performing network communication, that is, the obtained information is not real-time information, but the information of the previous snapshot status. Fetching real-time status will be considered later.
 
 
 
@@ -288,9 +288,9 @@ public void testScalingProducer() {
 
 
 
-## Other functions
+## Other features
 
-Other functions are implemented in the service package, and the entry is the impl package, which provides BrokerServiceImpl, MessageServiceImpl, QueueServiceImpl, and TopicServiceImpl. The following three functions are listed as examples.
+Other features are implemented in the service package, and the entry is the impl package, which provides BrokerServiceImpl, MessageServiceImpl, QueueServiceImpl, and TopicServiceImpl. The following three features are listed as examples.
 
 
 
@@ -335,4 +335,4 @@ queueServiceImpl.getQueueConsumerRelationByConsumerGroup(xxx);
 
 2. Design elastic scaling to scale producers and consumers in producer and consumer clusters through RPC communication or network communication.
 
-3. Several commonly used functions are implemented through the RocketMQ client in the rocketmq-tools package. Calling the API is actually performing network communication, that is, the obtained information is not real-time information, but the information of the previous snapshot status. Fetching real-time status will be considered later.
+3. Several commonly used features are implemented through the RocketMQ client in the rocketmq-tools package. Calling the API is actually performing network communication, that is, the obtained information is not real-time information, but the information of the previous snapshot status. Fetching real-time status will be considered later.
