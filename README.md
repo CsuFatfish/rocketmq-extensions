@@ -36,7 +36,7 @@
 
 ### 原理流程图
 
-![img.png](https://github.com/CsuFatfish/rocketmq-extend-tools/blob/main/Principle%20flow%20chart.jpg)
+![img.png](https://github.com/CsuFatfish/rocketmq-extensions/blob/main/Principle%20flow%20chart.jpg)
 
 
 
