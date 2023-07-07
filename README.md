@@ -1,4 +1,4 @@
-# RocketmqExtendTools
+# rocketmq-extensions
 
 由于RocketMQ官方提供的API和RocketmqConsole只提供了一些基本功能，在实际开发中往往需要开发者基于基本API进行扩展，该项目的目的是基于RocketMQ扩展其功能，对于官方未直接实现的功能提供一些易于使用的API，供大家使用或借鉴，降低学习成本，提高效率
 
